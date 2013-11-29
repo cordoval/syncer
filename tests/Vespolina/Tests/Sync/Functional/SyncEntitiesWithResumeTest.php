@@ -27,11 +27,11 @@ class SyncEntitiesWithResumeTest extends SyncBaseDownloadTestCase
 
         // SYNC 2 : get the next six products
         $this->manager->execute(array('product'), 6);
-        $this->assertEquals($state->getLastValue(), 8, 'now 6 more, that is 8');
+        $this->assertEquals(8, $state->getLastValue(), 'now 6 more, that is 8');
 
         // SYNC 3 : get the rest of the products
         $this->manager->execute(array('product'), 222222);
-        $this->assertEquals($state->getLastValue(), 20, '20 total products synced');
+        $this->assertEquals(20, $state->getLastValue(), '20 total products synced');
 
         // Verify that the log does not contain any issues
         $this->assertFalse($this->logHandler->hasErrorRecords(), 'Sync logs should not have any errors');
