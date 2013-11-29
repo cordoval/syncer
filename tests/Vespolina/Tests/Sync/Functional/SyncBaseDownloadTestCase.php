@@ -16,7 +16,7 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 use Vespolina\Sync\Gateway\SyncMemoryGateway;
 use Vespolina\Sync\Manager\SyncManager;
 
-class SyncBaseTestCase extends \PHPUnit_Framework_TestCase
+class SyncBaseDownloadTestCase extends \PHPUnit_Framework_TestCase
 {
     protected $logHandler;
     protected $manager;
@@ -33,7 +33,7 @@ class SyncBaseTestCase extends \PHPUnit_Framework_TestCase
         $logger = new Logger('test', array($this->logHandler));
 
         $yamlParser = new Parser();
-        $config = $yamlParser->parse(file_get_contents(__DIR__ . '/single_entity.yml'));
+        $config = $yamlParser->parse(file_get_contents(__DIR__ . '/single_download_entity.yml'));
         $this->manager = new SyncManager($this->gateway, $this->dispatcher, $logger, $config['syncer']);
 
         // Create a remote service adapter which can deal with products

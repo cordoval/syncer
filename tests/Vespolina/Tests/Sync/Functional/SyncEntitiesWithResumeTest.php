@@ -9,7 +9,7 @@
 
 namespace Vespolina\Tests\Sync\Functional;
 
-class SyncEntitiesWithResumeTest extends SyncBaseTestCase
+class SyncEntitiesWithResumeTest extends SyncBaseDownloadTestCase
 {
     public function testSyncEntities()
     {
