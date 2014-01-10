@@ -88,8 +88,12 @@ class SyncManager implements SyncManagerInterface
 
             $this->logger->info($message);
 
-            // Fetch raw entity data after 'lastValue'
-            $entitiesData = $adapter->fetchEntities($entityName, $lastValue, $size);
+            if ('download' == $this->config['direction']) {
+                // Fetch raw entity data after 'lastValue'
+                $entitiesData = $adapter->fetchEntities($entityName, $lastValue, $size);
+            } else {
+                $entitiesData = $adapter->pushEntities($entityName, $lastValue, $size);
+            }
 
             // Analyze the collected entities
             $this->processEntityDataCollection($state, $entitiesData);
