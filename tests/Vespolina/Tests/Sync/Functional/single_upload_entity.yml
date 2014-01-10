@@ -1,0 +1,10 @@
+syncer:
+  direction: upload
+  delay_dependency_processing: false
+  use_id_mapping: true
+  entities:
+      product:
+          strategy: incremental_id
+  remotes:
+      demo_system_1:
+          adapter: Vespolina\Sync\Adapter\RemoteAdapter

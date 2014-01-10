@@ -26,10 +26,10 @@ use Vespolina\Tests\Sync\Functional\Entity\RemoteProductCategory;
  */
 class SimpleRemoteServiceAdapter extends AbstractServiceAdapter
 {
-    protected $remoteProducts;
-    protected $remoteCategories;
-    protected $size;
-    protected $lastValue;
+    protected $remoteProducts = array();
+    protected $remoteCategories = array();
+    protected $size = 0;
+    protected $lastValue = null;
 
     public function addProduct($remoteProduct)
     {

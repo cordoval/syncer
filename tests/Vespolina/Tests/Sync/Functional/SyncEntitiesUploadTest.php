@@ -9,9 +9,9 @@
 
 namespace Vespolina\Tests\Sync\Functional;
 
-class SyncEntitiesWithDependencyTest extends SyncBaseDownloadTestCase
+class SyncEntitiesUploadTest extends SyncBaseUploadTestCase
 {
-    public function testSyncEntities()
+    public function testUploadSyncEntities()
     {
         $state = $this->manager->getState('product');
         $this->assertNull($state->getLastValue());
@@ -23,7 +23,6 @@ class SyncEntitiesWithDependencyTest extends SyncBaseDownloadTestCase
         $this->assertFalse($this->logHandler->hasErrorRecords(), 'Sync should not have any errors');
         // Test if all requested entities have been synced
         $state = $this->manager->getState('product');
-
         $this->assertEquals(20, $state->getLastValue());
     }
 }
